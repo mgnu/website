@@ -1,0 +1,24 @@
+{% extends "layouts/main.html" %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block keywords %}üyelik, başvuru{% endblock %}
+
+{% block content %}
+
+	<h1 style="margin-bottom: 25px">Üyelik Basvuru Formu</h1>
+
+	{% if success_message %}
+		<div class="alert">{{ success_message }}</div>
+	{% endif %}
+
+	{% if error_message %}
+		<div class="alert">{{ error_message }}</div>
+	{% endif %}
+
+	<form action="{% url 'member_form_submit' %}" method="post" class="uniForm">
+		{% csrf_token %}
+		{% crispy form %}
+	</form>
+
+{% endblock %}

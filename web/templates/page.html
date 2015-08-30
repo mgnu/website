@@ -1,0 +1,11 @@
+{% extends "layouts/main.html" %}
+{% load staticfiles %}
+
+{% block keywords %}{{ page.keywords }}{% endblock %}
+
+{% block content %}
+
+<h1>{{ page.title }}</h1>
+{{ page.content|safe }}
+
+{% endblock %}

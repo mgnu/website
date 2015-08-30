@@ -1,0 +1,17 @@
+{% extends "layouts/main.html" %}
+{% load staticfiles %}
+
+{% block keywords %}{% for post in posts %}{{ post.tags }}, {% endfor %}{% endblock %}
+
+{% block content %}
+
+{% for post in posts %}
+	<h1><a href="{% url 'blog_post' post.slug %}">{{ post.title }}</a></h1>
+	{{ post.content|safe }}
+	<p style="color: #555; margin-top: 25px; font-size: 14px">
+		<i>{{ post.date|date:"d.m.Y H:i:s" }}</i> tarihinde <i>{{ post.author.first_name }} {{ post.author.last_name }}</i> tarafından yazıldı.
+	</p>
+	<hr>
+{% endfor %}
+
+{% endblock %}

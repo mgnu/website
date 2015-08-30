@@ -1,0 +1,26 @@
+{% extends "layouts/main.html" %}
+{% load staticfiles %}
+
+{% block keywords %}kulüp, üyemiz, {{ member.name }}{% endblock %}
+
+{% block content %}
+
+<a href="{% url 'members' %}">&laquo; Tüm Üyeler</a>
+<h1>{{ member.name }}</h1>
+
+<div class="row" style="margin-top: 25px">
+	<div class="col-lg-2 col-md-3 col-sm-4" style="text-align: center; margin-bottom: 25px">
+		<img src="{{ static_url }}{% if member.picture %}{{ member.picture }}{% else %}django-summernote/2015-08-26/7c255665-d657-49d6-bf7a-2af3cd592ae5.png{% endif %}" class="img-circle" width="150" height="150" border="0" />
+	</div>
+	<div class="col-lg-10 col-md-9 col-sm-8">
+		<b>Takma adı:</b> {{ member.nickname }} <br><br>
+		{% if member.role %}<b>Rolü:</b> {{ member.role }} <br><br>{% endif %}
+		{% if member.email %}<b>E-Posta:</b> {{ member.email }} <br><br>{% endif %}
+		{% if member.irc %}<b>IRC:</b> {{ member.irc }} <br><br>{% endif %}
+		{% if member.twitter_username %}<b>Twitter:</b> <a href="https://twitter.com/{{ member.twitter_username }}" target="_blank">@{{ member.twitter_username }}</a> <br><br>{% endif %}
+		{% if member.github_username %}<b>Github:</b> <a href="https://github.com/{{ member.github_username }}" target="_blank">{{ member.github_username }}</a> <br><br>{% endif %}
+		{% if member.content %}<b>Açıklama:</b><br>{{ member.content|safe }} <br><br>{% endif %}
+	</div>
+</div>
+
+{% endblock %}

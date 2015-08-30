@@ -1,0 +1,16 @@
+Django==1.8.3
+django-datatrans==0.1.5
+django-grappelli==2.7.1
+django-summernote==0.6.10
+django-toolbelt==0.0.1
+Pillow
+psycopg2
+python-memcached
+PyYAML
+requests
+dj-database-url
+django-modeltranslation
+boto
+django-storages
+django-admin-bootstrapped
+django-crispy-forms

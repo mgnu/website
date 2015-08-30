@@ -1,0 +1,18 @@
+{% extends "layouts/main.html" %}
+{% load staticfiles %}
+
+{% block keywords %}{{ post.tags }}{% endblock %}
+
+{% block content %}
+
+<a href="{% url 'blog' %}">&laquo; Tüm Yazılar</a>
+<h1>{{ post.title }}</h1>
+{% if post.featured_image %}<center><img src="{{ static_url }}{{ post.featured_image }}" alt="{{ post.title }}" title="{{ post.title }}" class="img-responsive"></center><br>{% endif %}
+{{ post.content|safe }}
+<p style="color: #555; margin-top: 25px; font-size: 14px">
+	<i>{{ post.date|date:"d.m.Y H:i:s" }}</i> tarihinde <i>{{ post.author.first_name }} {{ post.author.last_name }}</i> tarafından yazıldı.
+	<br><br>
+	<b>Etiketler:</b> {{ post.tags }}
+</p>
+
+{% endblock %}
