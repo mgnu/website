@@ -61,6 +61,7 @@ DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 * Web sunucunuzdan gunicorn portuna ProxyPass yapın.
 
 Apache konfigürasyonu hakkında [detaylı bilgi](http://httpd.apache.org/docs/)
+
 nginx konfigürasyonu hakkında [detaylı bilgi](http://nginx.org/en/docs/)
 
 
@@ -121,4 +122,5 @@ Now open [http://127.0.0.1:8000](http://127.0.0.1:8000) in your browser and star
 * Make proxypass to gunicorn port
 
 More information about [Apache configuration](http://httpd.apache.org/docs/)
+
 More information about [nginx configuration](http://nginx.org/en/docs/)
