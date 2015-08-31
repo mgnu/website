@@ -24,7 +24,7 @@ PROJECT_DIRNAME = PROJECT_ROOT.split(os.sep)[-1]
 SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # Application definition
 
