@@ -1,82 +1,131 @@
 #-*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.shortcuts import render, render_to_response
+from django.http import Http404
 from django.core.urlresolvers import reverse
 from django.core.mail import send_mail
 # from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from forms import MemberForm
-from web import models
+from web.models import Setting, HomePage, Page, HomeBox, Quote, BlogPost, Member
 
 def index(request):
+	try:
+		model_settings = Setting.objects.get()
+	except Setting.DoesNotExist:
+		model_settings = None
+	try:
+		model_homepage = HomePage.objects.get()
+	except HomePage.DoesNotExist:
+		model_homepage = None
+	try:
+		random_quote = Quote.objects.order_by('?').first()
+	except:
+		random_quote = None
+
 	data = {
 		'static_url': settings.STATIC_FILE_URL_BASE,
-		'settings': models.Setting.objects.get(),
-		'homepage': models.HomePage.objects.get(),
-		'pages': models.Page.objects.all(),
-		'homeboxes': models.HomeBox.objects.all(),
-		'quote': models.Quote.objects.order_by('?').first(),
+		'settings': model_settings,
+		'homepage': model_homepage,
+		'pages': Page.objects.all(),
+		'homeboxes': HomeBox.objects.all(),
+		'quote': random_quote,
 	}
 
 	return render(request, 'index.html', data)
 
 def blog_post(request, slug):
+	try:
+		model_settings = Setting.objects.get()
+	except Setting.DoesNotExist:
+		model_settings = None
+	try:
+		blog_post = BlogPost.objects.get(slug=slug)
+	except BlogPost.DoesNotExist:
+		raise Http404
 	data = {
 		'static_url': settings.STATIC_FILE_URL_BASE,
-		'settings': models.Setting.objects.get(),
-		'pages': models.Page.objects.all(),
-		'post': models.BlogPost.objects.get(slug=slug),
+		'settings': model_settings,
+		'pages': Page.objects.all(),
+		'post': blog_post,
 	}
 
 	return render(request, 'blog_post.html', data)
 
 def blog(request):
+	try:
+		model_settings = Setting.objects.get()
+	except Setting.DoesNotExist:
+		model_settings = None
+
 	data = {
 		'static_url': settings.STATIC_FILE_URL_BASE,
-		'settings': models.Setting.objects.get(),
-		'pages': models.Page.objects.all(),
-		'posts': models.BlogPost.objects.order_by('-date'),
+		'settings': model_settings,
+		'pages': Page.objects.all(),
+		'posts': BlogPost.objects.order_by('-date'),
 	}
 
 	return render(request, 'blog.html', data)
 
 def profile(request, nickname):
+	try:
+		model_settings = Setting.objects.get()
+	except Setting.DoesNotExist:
+		model_settings = None
+	try:
+		current_member = Member.objects.get(nickname=nickname)
+	except Member.DoesNotExist:
+		raise Http404
+
 	data = {
 		'static_url': settings.STATIC_FILE_URL_BASE,
-		'settings': models.Setting.objects.get(),
-		'pages': models.Page.objects.all(),
-		'member': models.Member.objects.get(nickname=nickname),
+		'settings': model_settings,
+		'pages': Page.objects.all(),
+		'member': current_member,
 	}
 
 	return render(request, 'profile.html', data)
 
 def members(request):
+	try:
+		model_settings = Setting.objects.get()
+	except Setting.DoesNotExist:
+		model_settings = None
 	data = {
 		'static_url': settings.STATIC_FILE_URL_BASE,
-		'settings': models.Setting.objects.get(),
-		'pages': models.Page.objects.all(),
-		'members': models.Member.objects.order_by('name'),
+		'settings': model_settings,
+		'pages': Page.objects.all(),
+		'members': Member.objects.order_by('name'),
 	}
 
 	return render(request, 'members.html', data)
 
 # @login_required(login_url='/admin/')
 def member_form(request):
+	try:
+		model_settings = Setting.objects.get()
+	except Setting.DoesNotExist:
+		model_settings = None
 	data = {
 		'static_url': settings.STATIC_FILE_URL_BASE,
-		'settings': models.Setting.objects.get(),
-		'pages': models.Page.objects.all(),
+		'settings': model_settings,
+		'pages': Page.objects.all(),
 		'form': MemberForm,
 	}
 
 	return render(request, 'member_form.html', data)
 
 def member_form_submit(request):
+	try:
+		model_settings = Setting.objects.get()
+	except Setting.DoesNotExist:
+		model_settings = None
+
 	if request.method == 'GET':
 		data = {
 			'static_url': settings.STATIC_FILE_URL_BASE,
-			'settings': models.Setting.objects.get(),
-			'pages': models.Page.objects.all(),
+			'settings': model_settings,
+			'pages': Page.objects.all(),
 			'form': MemberForm(),
 		}
 
@@ -117,8 +166,8 @@ def member_form_submit(request):
 			)
 			return_data = {
 				'static_url': settings.STATIC_FILE_URL_BASE,
-				'settings': models.Setting.objects.get(),
-				'pages': models.Page.objects.all(),
+				'settings': model_settings,
+				'pages': Page.objects.all(),
 				'form': MemberForm(),
 				'success_message': 'Başvurunuz işleme alındı. Kısa bir süre sonra sizinle iletişime geçeceğiz. Teşekkürler.',
 			}
@@ -127,8 +176,8 @@ def member_form_submit(request):
 		else:
 			data = {
 				'static_url': settings.STATIC_FILE_URL_BASE,
-				'settings': models.Setting.objects.get(),
-				'pages': models.Page.objects.all(),
+				'settings': model_settings,
+				'pages': Page.objects.all(),
 				'form': MemberForm(request.POST),
 				'error_message': 'Lütfen gerekli alanları doldurunuz.',
 			}
@@ -136,11 +185,20 @@ def member_form_submit(request):
 			return render(request, 'member_form.html', data)
 
 def page(request, slug):
+	try:
+		model_settings = Setting.objects.get()
+	except Setting.DoesNotExist:
+		model_settings = None
+	try:
+		current_page = Page.objects.get(slug=slug)
+	except Page.DoesNotExist:
+		raise Http404
+
 	data = {
 		'static_url': settings.STATIC_FILE_URL_BASE,
-		'settings': models.Setting.objects.get(),
-		'pages': models.Page.objects.all(),
-		'page': models.Page.objects.get(slug=slug),
+		'settings': model_settings,
+		'pages': Page.objects.all(),
+		'page': current_page,
 	}
 
 	return render(request, 'page.html', data)

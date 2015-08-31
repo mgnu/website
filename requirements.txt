@@ -1,6 +1,5 @@
 Django==1.8.3
 django-datatrans==0.1.5
-django-grappelli==2.7.1
 django-summernote==0.6.10
 django-toolbelt==0.0.1
 Pillow

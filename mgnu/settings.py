@@ -21,7 +21,7 @@ PROJECT_DIRNAME = PROJECT_ROOT.split(os.sep)[-1]
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ''
+SECRET_KEY = 'mgnu9m9z1nt168y4vphd+se$^)&zx2a5!*#2vo#gd+jpo0gv^cvdrbem'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -79,31 +79,15 @@ SUMMERNOTE_CONFIG = {
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
 # PostgreSQL:
-# DATABASES = {    
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': '',
-#         'USER' : '',
-#         'PASSWORD' : '',
-#         'HOST' : '',
-#         'PORT' : '5432',
-#     }
-# }
-
-# SQLite
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': '',
+        'USER' : '',
+        'PASSWORD' : '',
+        'HOST' : '',
+        'PORT' : '5432',
     }
 }
 
