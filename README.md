@@ -1,7 +1,10 @@
 # mgnu.org
 ===
 
-MarmaraGNU web sitesi
+MarmaraGNU web sitesi / MarmaraGNU website
+
+Bu repo sadece bir yansımadır. Pull Request'ler [buradan](http://git.mgnu.org/mgnu/website) kabul edilecektir.
+This repo is only a MIRROR. Pull Requests will be accepted [here](http://git.mgnu.org/mgnu/website).
 
 
 ===
