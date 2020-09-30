@@ -119,7 +119,7 @@ Now open [http://127.0.0.1:8000](http://127.0.0.1:8000) in your browser and star
 
 * Fill ``fabfile/project_conf.py`` file, currently fabfile is for Amazon deployment, it can be changed due to your needs. There is a lot fab files for django deployment in different environments. More information about [fabfile](http://www.fabfile.org/).
 
-### Basic
+### Basics
 
 * Install nginx or apache
 * Run project in gunicorn: ``gunicorn mgnu.wsgi:application``
