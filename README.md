@@ -1,4 +1,4 @@
-# mgnu.org
+# mgnu.org is a interesting website
 ===
 
 MarmaraGNU web sitesi / MarmaraGNU website
