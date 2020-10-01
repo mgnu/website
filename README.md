@@ -1,4 +1,4 @@
-# mgnu.org
+# mgnu.org  (An Amazing Project using Python)
 ===
 
 MarmaraGNU web sitesi / MarmaraGNU website
