@@ -1,5 +1,5 @@
 # mgnu.org
-===
+========================================================
 
 MarmaraGNU web sitesi / MarmaraGNU website
 
