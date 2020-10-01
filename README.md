@@ -1,5 +1,5 @@
 # mgnu.org
-===an amazing thing
+===an amazing website.
 
 MarmaraGNU web sitesi / MarmaraGNU website
 
