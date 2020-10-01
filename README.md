@@ -1,3 +1,4 @@
+mgnu - An amazing project
 # mgnu.org
 ===
 
