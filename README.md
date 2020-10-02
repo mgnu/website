@@ -2,6 +2,7 @@
 ===
 
 MarmaraGNU web sitesi / MarmaraGNU website
+Welcome to the amazing world of tecnology..
 
 Bu repo sadece bir yansımadır. Pull Request'ler [buradan](http://git.mgnu.org/mgnu/website) kabul edilecektir.
 
