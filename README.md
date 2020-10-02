@@ -14,11 +14,11 @@ This repo is only a MIRROR. Pull Requests will be accepted [here](http://git.mgn
 
 ## SİSTEM GEREKSİNİMLERİ
 
-* python-pip paket yöneticisini yükleyin: ``sudo apt-get install python-pip``
+* python-pip paket yöneticisini yükleyin: ``sudo apt-get install python-pip``.
 * [isteğe bağlı] Bu projeye katkıda bulunmak için mgnu/website repo'sunu fork'layabilirsiniz.
-* Projeyi yerelinize indirin: ``git clone git@github.com:mgnu/website.git``
-* Proje ana dizinine gidin
-* Paket yöneticisi ile bağımlılıkları yükleyin: ``sudo pip install -r requirements.txt``
+* Projeyi yerelinize indirin: ``git clone git@github.com:mgnu/website.git``.
+* Proje ana dizinine gidin.
+* Paket yöneticisi ile bağımlılıkları yükleyin: ``sudo pip install -r requirements.txt``.
 * Yerelinize indirdiğiniz projenin ana dizininde ``local_settings.py`` dosyasını oluşturun.
 
 ``local_settings.py`` dosyasının içine aşağıdakileri kopyalayın:
@@ -56,7 +56,7 @@ DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 
 ### Otomatik
 
-* Şu anki ``fabfile/project_conf.py`` dosyası, projeyi Amazon'da yayınlamak için konfigüre edilmiştir. Kendi ihtiyacınıza göre bu dosyayı düzenleyin. Django projelerini yayınlama için farklı ortamlarda birçok fab dosyası bulunmaktadır. *fabfile* hakkında detaylı bilgi almak için: [FabFile Dökümantasyonu](http://www.fabfile.org/)
+* Şu anki ``fabfile/project_conf.py`` dosyası, projeyi Amazon'da yayınlamak için konfigüre edilmiştir. Kendi ihtiyacınıza göre bu dosyayı düzenleyin. Django projelerini yayınlama için farklı ortamlarda birçok fab dosyası bulunmaktadır. *fabfile* hakkında detaylı bilgi almak için: [FabFile Dökümantasyonu](http://www.fabfile.org/).
 
 ### Basit Kurulum
 
