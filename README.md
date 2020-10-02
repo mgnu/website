@@ -82,7 +82,7 @@ nginx konfigürasyonu hakkında [detaylı bilgi](http://nginx.org/en/docs/)
 * Install project requirements: ``sudo pip install -r requirements.txt``
 * Create ``local_settings.py`` file in project root for local environment.
 
-Copy and add following text to your ``local_settings.py`` file:
+Copy and add this following text to your ``local_settings.py`` file:
 
 ```python
 from __future__ import unicode_literals
