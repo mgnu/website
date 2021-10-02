@@ -1,4 +1,5 @@
 #-*- coding: utf-8 -*-
+#comment added
 from __future__ import unicode_literals
 from django.shortcuts import render, render_to_response
 from django.http import Http404
@@ -202,3 +203,4 @@ def page(request, slug):
 	}
 
 	return render(request, 'page.html', data)
+#commented
